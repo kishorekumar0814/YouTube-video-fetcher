@@ -17,11 +17,6 @@ def fetch_video():
     try:
         ydl_opts = {
             "quiet": True,
-            "skip_download": True
-        }
-
-        ydl_opts = {
-            "quiet": True,
             "skip_download": True,
             "extractor_args": {
                 "youtube": {
@@ -30,6 +25,8 @@ def fetch_video():
             }
         }
 
+        with YoutubeDL(ydl_opts) as ydl:
+            info = ydl.extract_info(url, download=False)
 
         return jsonify({
             "success": True,
@@ -44,8 +41,10 @@ def fetch_video():
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
 
+
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
 
