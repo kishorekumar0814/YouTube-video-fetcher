@@ -20,8 +20,16 @@ def fetch_video():
             "skip_download": True
         }
 
-        with YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(url, download=False)
+        ydl_opts = {
+            "quiet": True,
+            "skip_download": True,
+            "extractor_args": {
+                "youtube": {
+                    "player_client": ["android"]
+                }
+            }
+        }
+
 
         return jsonify({
             "success": True,
@@ -40,3 +48,4 @@ if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
