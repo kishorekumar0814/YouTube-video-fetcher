@@ -1,0 +1,164 @@
+:root {
+    --bg: #111;
+    --card: #1e1e1e;
+    --text: #ffffff;
+    --input-bg: #ffffff;
+    --input-text: #000;
+    --btn: #ff0000;
+}
+
+body.light {
+    --bg: #f4f4f4;
+    --card: #ffffff;
+    --text: #000000;
+    --input-bg: #eaeaea;
+    --input-text: #000;
+    --btn: #d32f2f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.container {
+    max-width: 420px;
+    width: 90%;
+    margin: 40px auto;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 8px;
+    border: none;
+    background: var(--input-bg);
+    color: var(--input-text);
+    font-size: 16px;
+}
+
+/* .fetch-btn {
+    width: 50%;
+    padding: 12px;
+    background: var(--btn);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.fetch-btn:hover {
+    opacity: 0.9;
+} */
+
+
+.fetch-btn {
+    width: 50%;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--btn), #ff4d4d);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+
+    display: block;
+    margin: 10px auto;
+
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+/* Hover animation */
+.fetch-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6);
+}
+
+/* Click animation */
+.fetch-btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 3px 8px rgba(255, 0, 0, 0.4);
+}
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#result img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    input, .fetch-btn {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Fetcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="manifest" href="/static/manifest.json">
+    <link rel="icon" href="/static/icons/icon-192.png">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="192x192" href="/static/icons/icon-192.png">
+    <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+    <meta name="theme-color" content="#ff0000">
+</head>
+<body>
+
+<div class="container">
+    <div class="top-bar">
+        <h1>YouTube Fetcher</h1>
+        <button class="theme-btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <input type="text" id="youtubeUrl" placeholder="Paste YouTube video link">
+    <!-- <button class="fetch-btn" onclick="fetchVideo()">Fetch Video</button> -->
+    <button class="fetch-btn" id="fetchBtn" onclick="fetchVideo()">
+    <span class="btn-text">Fetch Video</span>
+    <span class="spinner hidden"></span>
+    </button>
+
+
+    <div id="result" class="hidden">
+        <a id="videoLink" target="_blank">
+            <img id="thumbnail">
+        </a>
+        <h2 id="title"></h2>
+        <p id="channel"></p>
+    </div>
+
+    <p id="error" class="error"></p>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/static/sw.js");
+}
+</script>
+</body>
+</html>
